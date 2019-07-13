@@ -1,0 +1,11 @@
+spring:
+  sleuth:
+    sampler:
+      probability: 1
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:admin@${spring.cloud.client.ip-address}:8761/eureka/

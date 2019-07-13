@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      server:
+        prefix: config
+        git:
+          uri: http://${vservice.host}:3000/root/config
+          search-paths: /vservice
+          username: root
+          password:
+          basedir: d:/config
+          force-pull: true
+          clone-on-start: false
+  kafka:
+    bootstrap-servers: ${vservice.host}:9092

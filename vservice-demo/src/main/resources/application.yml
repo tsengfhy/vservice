@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: vservice-demo
+  profiles:
+    include: cluster
+    active: dev

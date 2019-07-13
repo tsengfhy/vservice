@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+      label: master
+      name: vservice-gateway
+      profile: default
+      discovery:
+        enabled: false
+        service-id: vservice-config
+      retry:
+        max-attempts: 3
+        initial-interval: 3000
+        max-interval: 5000
+      fail-fast: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@${spring.cloud.client.ip-address}:8761/eureka/

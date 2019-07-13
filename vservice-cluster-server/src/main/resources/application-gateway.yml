@@ -1,0 +1,22 @@
+zuul:
+  add-host-header: true
+  sensitive-headers: Cookie,Set-Cookie
+  retryable: true
+  host:
+    connect-timeout-millis: 250
+    socket-timeout-millis: 1000
+
+ribbon:
+  ConnectTimeout:  250
+  ReadTimeout: 1000
+  MaxAutoRetries: 0
+  MaxAutoRetiresNextServer: 2
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

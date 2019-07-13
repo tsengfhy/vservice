@@ -1,0 +1,549 @@
+{
+  "groups": [
+    {
+      "name": "vservice",
+      "type": "com.tsengfhy.vservice.basic.properties.Properties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties"
+    },
+    {
+      "name": "vservice.web",
+      "type": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties",
+      "sourceMethod": "getWeb()"
+    },
+    {
+      "name": "vservice.web.open-api",
+      "type": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "sourceMethod": "getOpenApi()"
+    },
+    {
+      "name": "vservice.security",
+      "type": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties",
+      "sourceMethod": "getSecurity()"
+    },
+    {
+      "name": "vservice.security.admin",
+      "type": "com.tsengfhy.vservice.basic.properties.AdminProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getAdmin()"
+    },
+    {
+      "name": "vservice.security.verify-code",
+      "type": "com.tsengfhy.vservice.basic.properties.VerifyCodeProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getVerifyCode()"
+    },
+    {
+      "name": "vservice.security.authentication",
+      "type": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getAuthentication()"
+    },
+    {
+      "name": "vservice.security.authentication.mobile",
+      "type": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "sourceMethod": "getMobile()"
+    },
+    {
+      "name": "vservice.security.authentication.token",
+      "type": "com.tsengfhy.vservice.basic.properties.TokenProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "sourceMethod": "getToken()"
+    },
+    {
+      "name": "vservice.security.remember-me",
+      "type": "com.tsengfhy.vservice.basic.properties.RememberMeProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getRememberMe()"
+    },
+    {
+      "name": "vservice.security.session",
+      "type": "com.tsengfhy.vservice.basic.properties.SessionProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getSession()"
+    },
+    {
+      "name": "vservice.security.oauth2",
+      "type": "com.tsengfhy.vservice.basic.properties.Oauth2Properties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SecurityProperties",
+      "sourceMethod": "getOauth2()"
+    },
+    {
+      "name": "vservice.security.oauth2.authorization",
+      "type": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Oauth2Properties",
+      "sourceMethod": "getAuthorization()"
+    },
+    {
+      "name": "vservice.security.oauth2.resource",
+      "type": "com.tsengfhy.vservice.basic.properties.ResourceProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Oauth2Properties",
+      "sourceMethod": "getResource()"
+    },
+    {
+      "name": "vservice.sms",
+      "type": "com.tsengfhy.vservice.basic.properties.SmsProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties",
+      "sourceMethod": "getSms()"
+    },
+    {
+      "name": "vservice.cluster",
+      "type": "com.tsengfhy.vservice.basic.properties.ClusterProperties",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties",
+      "sourceMethod": "getCluster()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "vservice.artifact",
+      "type": "java.lang.String",
+      "description": "Project artifact.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.Properties",
+      "defaultValue": "VService"
+    },
+    {
+      "name": "vservice.web.login",
+      "type": "java.lang.String",
+      "description": "Default login url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/login.html"
+    },
+    {
+      "name": "vservice.web.logout",
+      "type": "java.lang.String",
+      "description": "Default logout url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/logout.html"
+    },
+    {
+      "name": "vservice.web.index",
+      "type": "java.lang.String",
+      "description": "Default index url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/index.html"
+    },
+    {
+      "name": "vservice.web.error",
+      "type": "java.lang.String",
+      "description": "Default error url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties"
+    },
+    {
+      "name": "vservice.web.failure",
+      "type": "java.lang.String",
+      "description": "Default login failure url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/login.html?failure"
+    },
+    {
+      "name": "vservice.web.expired",
+      "type": "java.lang.String",
+      "description": "Default login expired url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/login.html?expired"
+    },
+    {
+      "name": "vservice.web.timeout",
+      "type": "java.lang.String",
+      "description": "Default login timeout url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/login.html?timeout"
+    },
+    {
+      "name": "vservice.web.bad-request",
+      "type": "java.lang.String",
+      "description": "Default badRequest url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/400.html"
+    },
+    {
+      "name": "vservice.web.unauthorized",
+      "type": "java.lang.String",
+      "description": "Default unauthorized url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/401.html"
+    },
+    {
+      "name": "vservice.web.forbidden",
+      "type": "java.lang.String",
+      "description": "Default forbidden url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/403.html"
+    },
+    {
+      "name": "vservice.web.not-found",
+      "type": "java.lang.String",
+      "description": "Default notFound url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/404.html"
+    },
+    {
+      "name": "vservice.web.methodN-not-allowed",
+      "type": "java.lang.String",
+      "description": "Default methodNotAllowed url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/405.html"
+    },
+    {
+      "name": "vservice.web.internal-server-error",
+      "type": "java.lang.String",
+      "description": "Default internalServerError url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/500.html"
+    },
+    {
+      "name": "vservice.web.service-unavailable",
+      "type": "java.lang.String",
+      "description": "Default serviceUnavailable url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/503.html"
+    },
+    {
+      "name": "vservice.web.gateway-timeout",
+      "type": "java.lang.String",
+      "description": "Default gatewayTimeout url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": "/504.html"
+    },
+    {
+      "name": "vservice.web.ssl-only",
+      "type": "java.lang.Boolean",
+      "description": "Is only ssl support.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.web.http-status-followed",
+      "type": "java.lang.Boolean",
+      "description": "If not, http status will always be 200.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.web.exception-followed",
+      "type": "java.lang.Boolean",
+      "description": "If not, http status default message will be given.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.WebProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "vservice.web.open-api.title",
+      "type": "java.lang.String",
+      "description": "OpenAPI title.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "defaultValue": "VService API"
+    },
+    {
+      "name": "vservice.web.open-api.description",
+      "type": "java.lang.String",
+      "description": "OpenAPI description.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties"
+    },
+    {
+      "name": "vservice.web.open-api.version",
+      "type": "java.lang.String",
+      "description": "OpenAPI version.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "defaultValue": "1.0"
+    },
+    {
+      "name": "vservice.web.open-api.contact",
+      "type": "java.lang.String",
+      "description": "OpenAPI contact.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "defaultValue": "tsengfhy"
+    },
+    {
+      "name": "vservice.web.open-api.url",
+      "type": "java.lang.String",
+      "description": "OpenAPI url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "defaultValue": "www.tsengfhy.com"
+    },
+    {
+      "name": "vservice.web.open-api.mail",
+      "type": "java.lang.String",
+      "description": "OpenAPI mail.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties",
+      "defaultValue": "tsengfhy@gmail.com"
+    },
+    {
+      "name": "vservice.web.open-api.group-map",
+      "type": "java.util.Map<java.lang.String, java.lang.String>",
+      "description": "OpenAPI divide into groups, eg: Vservice: com.tsengfhy.vservice.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.OpenApiProperties"
+    },
+    {
+      "name": "vservice.security.admin.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable super administrator.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AdminProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.admin.username",
+      "type": "java.lang.String",
+      "description": "Administrator account.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AdminProperties",
+      "defaultValue": "admin"
+    },
+    {
+      "name": "vservice.security.admin.password",
+      "type": "java.lang.String",
+      "description": "Administrator password.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AdminProperties",
+      "defaultValue": "admin"
+    },
+    {
+      "name": "vservice.security.admin.role",
+      "type": "java.lang.Stirng",
+      "description": "Administrator role.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AdminProperties",
+      "defaultValue": "ADMIN"
+    },
+    {
+      "name": "vservice.security.verify-code.type",
+      "type": "com.tsengfhy.vservice.basic.constant.Random",
+      "description": "VerifyCode type.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.VerifyCodeProperties"
+    },
+    {
+      "name": "vservice.security.verify-code.length",
+      "type": "java.lang.Integer",
+      "description": "Default VerifyCode length.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.VerifyCodeProperties",
+      "defaultValue": 6
+    },
+    {
+      "name": "vservice.security.verify-code.expired-millis",
+      "type": "java.lang.Integer",
+      "description": "Default VerifyCode expired millis.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.VerifyCodeProperties",
+      "defaultValue": 300000
+    },
+    {
+      "name": "vservice.security.verify-code.expired-times",
+      "type": "java.lang.Integer",
+      "description": "Default VerifyCode expired times.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.VerifyCodeProperties",
+      "defaultValue": 3
+    },
+    {
+      "name": "vservice.security.authentication.login-url",
+      "type": "java.lang.String",
+      "description": "Default login url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": "/login"
+    },
+    {
+      "name": "vservice.security.authentication.logout-url",
+      "type": "java.lang.String",
+      "description": "Default logout url.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": "/logout"
+    },
+    {
+      "name": "vservice.security.authentication.username-parameter",
+      "type": "java.lang.String",
+      "description": "Default login username parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": "username"
+    },
+    {
+      "name": "vservice.security.authentication.password-parameter",
+      "type": "java.lang.String",
+      "description": "Default login password parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": "password"
+    },
+    {
+      "name": "vservice.security.authentication.mobile.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Weather to enable mobile login strategy.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.authentication.mobile.mobile-parameter",
+      "type": "java.lang.String",
+      "description": "Default login mobile parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "defaultValue": "mobile"
+    },
+    {
+      "name": "vservice.security.authentication.mobile.code-parameter",
+      "type": "java.lang.String",
+      "description": "Default login code parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "defaultValue": "code"
+    },
+    {
+      "name": "vservice.security.authentication.token.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Weather to enable token login strategy.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.authentication.mobile.parameter",
+      "type": "java.lang.String",
+      "description": "Default login token parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.MobileProperties",
+      "defaultValue": "token"
+    },
+    {
+      "name": "vservice.security.authentication.limit-method",
+      "type": "java.lang.String",
+      "description": "Limit login method.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": "POST"
+    },
+    {
+      "name": "vservice.security.authentication.delete-cookies",
+      "type": "java.util.List<java.lang.String>",
+      "description": "List cookies will be delete when logout.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties"
+    },
+    {
+      "name": "vservice.security.authentication.public-urls",
+      "type": "java.util.List<java.lang.String>",
+      "description": "List urls will never need authenticate.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthenticationProperties",
+      "defaultValue": [
+        "/public/**"
+      ]
+    },
+    {
+      "name": "vservice.security.remember-me.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Weather to enable remember-me.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.RememberMeProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.remember-me.cookie",
+      "type": "java.lang.String",
+      "description": "Remember-me cookie name.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.RememberMeProperties",
+      "defaultValue": "TOKEN"
+    },
+    {
+      "name": "vservice.security.remember-me.parameter",
+      "type": "java.lang.String",
+      "description": "Remember-me parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.RememberMeProperties",
+      "defaultValue": "remember-me"
+    },
+    {
+      "name": "vservice.security.remember-me.token-validity-seconds",
+      "type": "java.lang.Integer",
+      "description": "Seconds of emember-me lasts, default 1w.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.RememberMeProperties",
+      "defaultValue": 604800
+    },
+    {
+      "name": "vservice.security.session.cookie",
+      "type": "java.lang.String",
+      "description": "Session cookie name.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SessionProperties",
+      "defaultValue": "JSESSIONID"
+    },
+    {
+      "name": "vservice.security.session.maximum-sessions",
+      "type": "java.lang.Integer",
+      "description": "Session cookie name.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SessionProperties",
+      "defaultValue": 1
+    },
+    {
+      "name": "vservice.security.session.max-sessions-prevents-login",
+      "type": "java.lang.Boolean",
+      "description": "Weather to prevent more user to login when current reach max.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SessionProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.oauth2.authorization.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Weather to enable oauth2 authorization server.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.security.oauth2.authorization.client-id-parameter",
+      "type": "java.lang.String",
+      "description": "Oauth2 client id parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "defaultValue": "client_id"
+    },
+    {
+      "name": "vservice.security.oauth2.authorization.client-secret-parameter",
+      "type": "java.lang.String",
+      "description": "Oauth2 client secret parameter.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "defaultValue": "client_secret"
+    },
+    {
+      "name": "vservice.security.oauth2.authorization.access-token-validity-seconds",
+      "type": "java.lang.Integer",
+      "description": "Seconds of access token lasts.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "defaultValue": 3600
+    },
+    {
+      "name": "vservice.security.oauth2.authorization.refresh-token-validity-seconds",
+      "type": "java.lang.Integer",
+      "description": "Seconds of refresh token lasts.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.AuthorizationProperties",
+      "defaultValue": 7200
+    },
+    {
+      "name": "vservice.security.oauth2.resource.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Weather to enable oauth2 resource server.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.ResourceProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "vservice.sms.type",
+      "type": "java.lang.String",
+      "description": "Sms server type.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SmsProperties"
+    },
+    {
+      "name": "vservice.sms.access-key",
+      "type": "java.lang.String",
+      "description": "Access key of sms server.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SmsProperties"
+    },
+    {
+      "name": "vservice.sms.access-secret",
+      "type": "java.lang.String",
+      "description": "Access secret of sms Server.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SmsProperties"
+    },
+    {
+      "name": "vservice.sms.sign-name",
+      "type": "java.lang.String",
+      "description": "Default sign name.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.SmsProperties"
+    },
+    {
+      "name": "vservice.cluster.worker-id",
+      "type": "java.lang.Long",
+      "description": "Worker id of the project in cluster.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.ClusterProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "vservice.cluster.dataCenter-id",
+      "type": "java.lang.Long",
+      "description": "DataCenter id of the project in cluster.",
+      "sourceType": "com.tsengfhy.vservice.basic.properties.ClusterProperties",
+      "defaultValue": 0
+    }
+  ]
+}

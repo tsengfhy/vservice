@@ -1,0 +1,62 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 1800
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+  datasource:
+    url: jdbc:mysql://${vservice.host}:3306/vservice?autoReconnect=true&useSSL=false
+    username: root
+    password:
+  redis:
+    database: 0
+    host: ${vservice.host}
+    port: 6379
+    password:
+  kafka:
+    bootstrap-servers: ${vservice.host}:9092
+    consumer:
+      group-id: ${spring.application.name:application}
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: ${vservice.host}:9300
+  elasticsearch:
+    rest:
+      uris: ${vservice.host}:9200
+
+fdfs:
+  trackerList:
+    - ${vservice.host}:22122
+
+logging:
+  level:
+    root: info
+    org.springframework: error
+    org.apache: error
+    org.hibernate: error
+  file: log\vservice.log
+  pattern:
+    file: "%d{yyy-MM-dd HH:mm:ss:SSS} %-5level%r --- [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] %C.%M@%L      :%msg%n"
+
+vservice:
+  host:
+  security:
+    admin:
+      enabled: false
+    remember-me:
+      enabled: true
+    authentication:
+      mobile:
+        enabled: true
+      token:
+        enabled: true
+    oauth2:
+      authorization:
+        enabled: false
+      resource:
+        enabled: false
+

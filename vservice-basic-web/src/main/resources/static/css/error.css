@@ -1,0 +1,117 @@
+@font-face {
+    font-family: MavenPro-Regular;
+    src: url('../fonts/maven-pro/MavenPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: MavenPro-Black;
+    src: url('../fonts/maven-pro/MavenPro-Black.ttf');
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.limiter {
+    position: relative;
+    height: 100vh;
+}
+
+.limiter .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    padding: 0 15px;
+    width: 100%;
+    max-width: 920px;
+    min-width: 320px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.container .background {
+    position: absolute;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.container .background h1 {
+    font-family: MavenPro-Black, sans-serif;
+    color: #ececec;
+    font-weight: 900;
+    font-size: 276px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container h2 {
+    font-family: MavenPro-Black, sans-serif;
+    font-size: 46px;
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.container p {
+    font-family: MavenPro-Regular, sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.container a {
+    font-family: MavenPro-Regular, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #2b85e4;
+    display: inline-block;
+    padding: 15px 38px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 400;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.container a:hover {
+    background-color: #fff;
+    border-color: #2b85e4;
+    color: #2b85e4;
+}
+
+@media only screen and (max-width: 480px) {
+    .container .background h1 {
+        font-size: 162px;
+    }
+
+    .container h2 {
+        font-size: 26px;
+    }
+}

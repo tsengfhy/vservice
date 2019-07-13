@@ -1,0 +1,32 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: vservice-server
+  profiles:
+    include: discovery,config,gateway
+  datasource:
+    url: jdbc:mysql://${vservice.host}:3306/vservice?autoReconnect=true&useSSL=false
+    username: root
+    password:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,bus-refresh
+
+vservice:
+  host:
+  security:
+    admin:
+      enabled: true
+    oauth2:
+      authorization:
+        enabled: true
+    authentication:
+      public-urls:
+        - /vservice/**
+        - /actuator/**
+        - /config/**

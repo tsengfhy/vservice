@@ -1,0 +1,62 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      timeout: 3600
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+  datasource:
+    url: jdbc:mysql://${vservice.host}:3306/vservice?autoReconnect=true&useSSL=false
+    username: root
+    password:
+  redis:
+    database: 0
+    host: ${vservice.host}
+    port: 6379
+    password:
+  kafka:
+    bootstrap-servers: ${vservice.host}:9092
+    consumer:
+      enable-auto-commit: true
+      group-id: ${spring.application.name:application}
+    listener:
+      concurrency: 1
+      ack-mode: record
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: ${vservice.host}:9300
+  elasticsearch:
+    rest:
+      uris: ${vservice.host}:9200
+
+fdfs:
+  trackerList:
+    - ${vservice.host}:22122
+
+logging:
+  level:
+    root: info
+    com.tsengfhy.vservice: debug
+
+vservice:
+  host:
+  security:
+    admin:
+      enabled: true
+    remember-me:
+      enabled: true
+    authentication:
+      mobile:
+        enabled: false
+      token:
+        enabled: false
+
+
+

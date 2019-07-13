@@ -1,0 +1,161 @@
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 20
+        queue-capacity: 200
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /static/**
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  datasource:
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      remove-abandoned: true
+      remove-abandoned-timeout-millis: 1800000
+      log-abandoned: true
+      use-global-data-source-stat: true
+      filter:
+        stat:
+          enabled: true
+          merge-sql: true
+          log-slow-sql: true
+          slow-sql-millis: 5000
+        wall:
+          enabled: true
+          log-violation: true
+          throw-exception: true
+          config:
+            truncate-allow: false
+        log4j2:
+          enabled: true
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        session-stat-enable: false
+        profile-enable: true
+  redis:
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+  cache:
+    redis:
+      time-to-live: 3600000
+  quartz:
+    job-store-type: jdbc
+    properties:
+      org.quartz.scheduler.instanceName: quartzScheduler
+      org.quartz.scheduler.instanceId: AUTO
+      org.quartz.jobStore.class: org.quartz.impl.jdbcjobstore.JobStoreTX
+      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+      org.quartz.jobStore.tablePrefix: SYS_
+      org.quartz.jobStore.isClustered: true
+      org.quartz.jobStore.clusterCheckinInterval: 20000
+      org.quartz.jobStore.misfireThreshold: 60000
+      org.quartz.jobStore.useProperties: false
+      org.quartz.threadPool.class: org.quartz.simpl.SimpleThreadPool
+      org.quartz.threadPool.threadCount: 10
+      org.quartz.threadPool.threadPriority: 5
+      org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread: true
+  kafka:
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      auto-commit-interval: 100
+    template:
+      default-topic: default
+    listener:
+      concurrency: 3
+      ack-mode: manual_immediate
+
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  thumb-image:
+    width: 150
+    height: 150
+  pool:
+    max-total: 150
+    max-wait-millis: 100
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /apis
+
+jasypt:
+  encryptor:
+    password: ${vservice.artifact:VService}-key
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ip-address}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 5
+  client:
+    healthcheck:
+      enabled: true
+
+ribbon:
+  ConnectTimeout:  250
+  ReadTimeout: 1000
+  MaxAutoRetries: 0
+  MaxAutoRetiresNextServer: 2
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        requestVolumeThreshold: 3
+        sleepWindowInMilliseconds: 5000
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  hystrix:
+    enabled: true
+
+vservice:
+  sms:
+    sign-name: ${vservice.artifact:VService}
