@@ -19,7 +19,7 @@ The same rules apply to i18n as well.
 
 ## Exception handle
 
-**VService** will handle all exceptions, and if request contains `"Content-Type": "application/json"`, response data format show as below.
+**VService** will handle all exceptions, and if request contains `"Accept": "application/json"`, response data format show as below.
 
 ```
 {

@@ -2,7 +2,6 @@ package com.tsengfhy.vservice.basic.utils;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.pop3.POP3Folder;
-import com.sun.xml.internal.ws.encoding.DataHandlerDataSource;
 import com.tsengfhy.vservice.basic.dto.mail.MailMessageDto;
 import com.tsengfhy.vservice.basic.mail.Mailbox;
 import lombok.experimental.UtilityClass;
@@ -219,12 +218,12 @@ public final class MailUtils {
                                     .findAny()
                                     .map(matcher -> matcher.group(1))
                                     .orElseThrow(() -> new MessagingException("No Content-ID")),
-                            new DataHandlerDataSource(part.getDataHandler())
+                            part.getDataHandler().getDataSource()
                     );
                 }
             } else {
                 if (Part.ATTACHMENT.equals(type)) {
-                    map.put(MimeUtility.decodeText(part.getFileName()), new DataHandlerDataSource(part.getDataHandler()));
+                    map.put(MimeUtility.decodeText(part.getFileName()), part.getDataHandler().getDataSource());
                 }
             }
 

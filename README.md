@@ -1,9 +1,11 @@
 <h1 align="center">VService</h1>
 
-[![License](https://img.shields.io/github/license/tsengfhy/vservice.svg?color=green)](https://opensource.org/licenses/MIT)
-[![Checks](https://img.shields.io/github/status/contexts/pulls/tsengfhy/vservice/1110.svg)](https://github.com/tsengfhy/vservice/issues)
+[![License](https://img.shields.io/github/license/tsengfhy/vservice.svg)](https://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues-closed/tsengfhy/vservice.svg)](https://github.com/tsengfhy/vservice/issues)
+[![GitHub repo size](https://img.shields.io/github/repo-size/tsengfhy/vservice.svg)](https://github.com/tsengfhy/vservice.git)
+[![GitHub last commit](https://img.shields.io/github/last-commit/tsengfhy/vservice.svg)](https://github.com/tsengfhy/vservice/commits/master)
 
-VService is a general architecture which based on Spring Boot/Spring Cloud. All my thoughts are that coding should be easy and amusing, and hope you have fun. Finally, please allow me to show my rural english.
+**VService** is a general architecture which based on Spring Boot/Spring Cloud. All my thoughts are that coding should be easy and amusing, and hope you have fun. Finally, please allow me to show my rural english.
 
 ## Features
 

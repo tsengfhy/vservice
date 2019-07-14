@@ -12,11 +12,12 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.BASE64Encoder;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.Optional;
 
 @RestController
@@ -64,8 +65,7 @@ public class FileDemoCtrl {
         FileDto dto = fileTemplate.findById(Optional.ofNullable(id).orElse(fileId));
 
         byte[] byteArray = IOUtils.toByteArray(dto.getInputStream());
-        BASE64Encoder base64Encoder = new BASE64Encoder();
-        return "<img src=\"data:image/png;base64," + base64Encoder.encodeBuffer(byteArray).trim() + "\" />";
+        return "<img src=\"data:image/png;base64," + Arrays.toString(Base64.getEncoder().encode(byteArray)) + "\" />";
     }
 
     @DeleteMapping(value = "/{id}")
