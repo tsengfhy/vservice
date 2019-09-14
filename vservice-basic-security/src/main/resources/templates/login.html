@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VService</title>
+
+    <link type="text/css" rel="stylesheet" href="/static/css/vegas/vegas.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/font-awesome/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/login.css">
+
+</head>
+
+<body>
+<div class="limiter">
+    <form class="container" id="login_form" action="/login" method="post">
+        <h1>Welcome to <span class="artifact">VService</span></h1>
+
+        <div class="wrapper input validate" data-validate="Username is required">
+            <input type="text" name="username" placeholder="Username">
+            <span class="focus"></span>
+        </div>
+
+
+        <div class="wrapper input validate" data-validate="Password is required">
+            <input type="password" name="password" placeholder="Password">
+            <span class="focus"></span>
+        </div>
+
+        <div class="wrapper">
+            <div>
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">
+                    Remember me
+                </label>
+            </div>
+
+            <a href="#">
+                Forgot?
+            </a>
+        </div>
+
+        <div class="wrapper">
+            <button>
+                Login
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="/static/js/zepto.min.js"></script>
+<script src="/static/js/vegas/vegas.min.js"></script>
+
+<script>
+    "use strict";
+    $(function () {
+        $('body').vegas({
+            slides: [{
+                src: '/static/images/slide1.jpeg',
+                color: '#6699CC'
+            }, {
+                src: '/static/images/slide2.jpeg',
+                color: '#666666'
+            }, {
+                src: '/static/images/slide3.jpeg',
+                color: '#FF9933'
+            }, {
+                src: '/static/images/slide4.jpeg',
+                color: '#99CC99'
+            }, {
+                src: '/static/images/slide5.jpeg',
+                color: '#996622'
+            }, {
+                src: '/static/images/slide6.jpeg',
+                color: '#994444'
+            }, {
+                src: '/static/images/slide7.jpeg',
+                color: '#827ffe'
+            }],
+            walk: function (i, settings) {
+                i = null;
+
+                $('.container h1 .artifact').css('color', settings.color);
+                $('.wrapper input').css('color', settings.color);
+                $('.wrapper.input .focus').css('borderColor', settings.color);
+                $('.wrapper input[type=checkbox] + label').css('color', settings.color);
+                $('.wrapper a').css('color', settings.color);
+                $('.wrapper button').css('backgroundColor', settings.color);
+                $('.vegas-timer-progress').css('backgroundColor', settings.color);
+            },
+            overlay: '/static/images/overlay.png',
+            delay: 10000,
+            slidesToKeep: 1,
+            transition: 'blur',
+            transitionDuration: 8000,
+            animation: 'random',
+            animationDuration: 10000,
+        });
+
+        $("form").on("submit", function () {
+            let result = true;
+            $(this).find(".validate input").each(function () {
+                if (!validate(this)) {
+                    $(this).parent().addClass('alert');
+                    result = false;
+                }
+            });
+
+            return result;
+        });
+
+        $('.validate input').each(function () {
+            $(this).focus(function () {
+                $(this).parent().removeClass('alert');
+            });
+        });
+    });
+
+    function validate(input) {
+        let $input = $(input);
+        if (!$input.val().trim()) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

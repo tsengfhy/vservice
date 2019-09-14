@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:mysql://${vservice.host}:3306/vservice?autoReconnect=true&useSSL=false
     username: root
-    password:
+    password: ENC(PiAehy0/45k/NfpTNvfK2Q==)
 
 management:
   endpoints:
@@ -18,7 +18,7 @@ management:
         include: health,info,bus-refresh
 
 vservice:
-  host:
+  host: ENC(H6G6vYCwQkCFzON/KSflPRjyuolfmWYg)
   security:
     admin:
       enabled: true

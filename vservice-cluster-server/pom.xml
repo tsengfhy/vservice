@@ -24,6 +24,10 @@
     </dependency>
     <dependency>
       <groupId>com.tsengfhy.vservice</groupId>
+      <artifactId>vservice-basic-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.tsengfhy.vservice</groupId>
       <artifactId>vservice-basic-kafka</artifactId>
     </dependency>
 

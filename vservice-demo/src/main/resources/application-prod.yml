@@ -10,12 +10,12 @@ spring:
   datasource:
     url: jdbc:mysql://${vservice.host}:3306/vservice?autoReconnect=true&useSSL=false
     username: root
-    password:
+    password: ENC(PiAehy0/45k/NfpTNvfK2Q==)
   redis:
     database: 0
     host: ${vservice.host}
     port: 6379
-    password:
+    password: ENC(PiAehy0/45k/NfpTNvfK2Q==)
   kafka:
     bootstrap-servers: ${vservice.host}:9092
     consumer:
@@ -43,7 +43,7 @@ logging:
     file: "%d{yyy-MM-dd HH:mm:ss:SSS} %-5level%r --- [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] %C.%M@%L      :%msg%n"
 
 vservice:
-  host:
+  host: ENC(H6G6vYCwQkCFzON/KSflPRjyuolfmWYg)
   security:
     admin:
       enabled: false

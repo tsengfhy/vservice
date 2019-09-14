@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class RestExceptionHandler extends AbstractExceptionHandler<ResponseEntit
     @Autowired
     private Properties properties;
 
-    private static final Pattern CONSTRAINT_VIOLATION_PATTERN = Pattern.compile("^.+\\.(.+):(.*)$");
+    private static final Pattern CONSTRAINT_VIOLATION_PATTERN = Pattern.compile("^.+\\.(.+)$");
 
     @Override
     public boolean supportsMediaType(MediaType mediaType) {
@@ -61,10 +62,12 @@ public class RestExceptionHandler extends AbstractExceptionHandler<ResponseEntit
                     null
             );
         } else if (e instanceof ConstraintViolationException) {
-            Map<String, String> errors = Arrays.stream(reason.split(","))
-                    .map(CONSTRAINT_VIOLATION_PATTERN::matcher)
-                    .filter(Matcher::find)
-                    .collect(Collectors.toMap(matcher -> matcher.group(1), matcher -> matcher.group(2).trim()));
+            Map<String, String> errors = ((ConstraintViolationException) e).getConstraintViolations()
+                    .stream()
+                    .collect(Collectors.toMap(
+                            constraintViolation -> Optional.of(constraintViolation.getPropertyPath().toString()).map(CONSTRAINT_VIOLATION_PATTERN::matcher).filter(Matcher::find).map(matcher -> matcher.group(1)).orElseGet(() -> constraintViolation.getPropertyPath().toString()),
+                            ConstraintViolation::getMessage
+                    ));
 
             rest = RestUtils.operate(
                     status.value(),

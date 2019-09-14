@@ -7,7 +7,7 @@ spring:
           uri: http://${vservice.host}:3000/root/config
           search-paths: /vservice
           username: root
-          password:
+          password: ENC(7HtW/heirPP5UitqFT66qFfaFw7f33C8)
           basedir: d:/config
           force-pull: true
           clone-on-start: false

@@ -1,5 +1,4 @@
-/**/target/
-/vservice-basic-security
+**/target
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
